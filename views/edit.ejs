@@ -51,19 +51,35 @@
             border: none;
         }
 
-        .editBtn {
-            background-color: #dea23c;
+        .editBtn,
+        .backBtn {
             padding: 8px;
             font-size: 18px;
             height: 40px;
             border: none;
-            width: 10%;
-            cursor: pointer;
+            width: 7%;
+            font-weight: 700;
             transition: background-color 500ms;
+        }
+
+        .editBtn {
+            cursor: pointer;
+            background-color: #dea23c;
         }
 
         .editBtn:hover {
             background-color: #c89337;
+        }
+
+        .backBtn {
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            background-color: #c97e4d;
+        }
+
+        .backBtn:hover {
+            background-color: #9e5626;
         }
     </style>
 </head>
@@ -74,6 +90,7 @@
         <form action="/todolist/<%= todolist._id %>?_method=PUT" class="editTask" method="POST">
             <input type="text" class="editText" value="<%= todolist.title %>" name="todolist[title]">
             <button class="editBtn">Edit</button>
+            <a href="/todolist" class="backBtn">Back</a>
         </form>
     </div>
     <%- include('../partials/footer') %>

@@ -16,7 +16,7 @@ const Todolist=require('./models/todolist');
 
 const todolist = require('./models/todolist');
 
-const dbUrl=process.env.DB_URL;
+const dbUrl=process.env.DB_URL || 3000;
 // const dbUrl='mongodb://127.0.0.1:27017/todo-list';
 
 const fs=require("fs");
@@ -24,7 +24,7 @@ const fs=require("fs");
 
 // const {MongoStore}=require('connect-mongo');
 
-const PORT=process.env.PORT || 3000;
+const PORT=process.env.PORT;
 
 const session=require('express-session');
 const MongoStore=require('connect-mongo');
@@ -116,5 +116,5 @@ app.delete('/todolist/:id',async (req,res)=>{
 })
 
 app.listen(PORT,()=>{
-    console.log("LISTENING AT PORT 3000!!");
+    console.log(`LISTENING AT PORT ${PORT}!!`);
 });
