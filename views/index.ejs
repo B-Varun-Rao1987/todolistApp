@@ -94,6 +94,8 @@
             border: none;
             width: 10%;
             cursor: pointer;
+            font-weight: 700;
+            text-align: center;
             transition: background-color 500ms;
         }
 
@@ -138,6 +140,34 @@
         .delBtn:hover {
             background-color: #4db15b;
             transform: translateY(2%);
+        }
+
+
+        @media only screen and (max-width: 870px) {
+            .conatiner {
+                height: 510px;
+                width: 90%;
+            }
+
+            .taskTitle {
+                padding: 5px;
+                font-size: 14px;
+            }
+
+            #addTask {
+                font-size: 13px;
+                width: 14%;
+            }
+
+            .listText {
+                font-size: 13px;
+            }
+
+            .delBtn,
+            .editBtn {
+                font-size: 14px;
+                width: 60px;
+            }
         }
     </style>
 
