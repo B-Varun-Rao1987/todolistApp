@@ -51,10 +51,6 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(methodOverride('_method'));
 
-app.get('/',(req,res)=>{
-    res.send("Hello!!,Welcome to My todolist :)");
-})
-
 const store=MongoStore.create({
     mongoUrl:dbUrl,
     touchAfter:24*60*60,
@@ -82,34 +78,34 @@ const sessionConfig={
 
 app.use(session(sessionConfig));
 
-app.get('/todolist',async (req,res)=>{
+app.get('/',async (req,res)=>{
     const todolists=await Todolist.find({});
     // for(let i=0;i<campgrounds.length;i++)
     //     console.log(campgrounds[i]);
     res.render('index',{todolists});
 });
 
-app.get('/todolist/:id/edit',async (req,res)=>{
+app.get('/:id/edit',async (req,res)=>{
     const {id}=req.params;
     const todolist=await Todolist.findById(id);
     res.render('edit',{todolist});
 });
 
-app.post('/todolist',async (req,res)=>{
+app.post('/',async (req,res)=>{
     const todolist=new Todolist(req.body.todolist);
     await todolist.save();
     // console.log(req.body);
-    res.redirect('/todolist');
+    res.redirect('/');
 })
 
-app.put('/todolist/:id',async (req,res)=>{
+app.put('/:id',async (req,res)=>{
     const {id}=req.params;
     console.log("EDIT TASK");
     const campground=await Todolist.findByIdAndUpdate(id,req.body.todolist,{runValidators:true,new:true});
     res.redirect(`/todolist`);
 });
 
-app.delete('/todolist/:id',async (req,res)=>{
+app.delete('/:id',async (req,res)=>{
     const {id}=req.params;
     await Todolist.findByIdAndDelete(id);
     res.redirect('/todolist');

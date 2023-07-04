@@ -2,8 +2,9 @@ const mongoose=require('mongoose');
 
 const Todolist=require('../models/todolist');
 
+const dbURL=process.env.DB_URL;
 
-mongoose.connect('mongodb://127.0.0.1:27017/todo-list');
+mongoose.connect(dbURL);
 
 const db=mongoose.connection;
 
