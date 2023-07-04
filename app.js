@@ -102,13 +102,13 @@ app.put('/:id',async (req,res)=>{
     const {id}=req.params;
     console.log("EDIT TASK");
     const campground=await Todolist.findByIdAndUpdate(id,req.body.todolist,{runValidators:true,new:true});
-    res.redirect(`/todolist`);
+    res.redirect('/');
 });
 
 app.delete('/:id',async (req,res)=>{
     const {id}=req.params;
     await Todolist.findByIdAndDelete(id);
-    res.redirect('/todolist');
+    res.redirect('/');
 })
 
 app.listen(PORT,()=>{

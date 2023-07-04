@@ -147,7 +147,7 @@
     <div class="container">
         <div class="enterTask">
             <h2>To Do List</h2>
-            <form action="/todolist" class="taskInputSubmit" method="POST">
+            <form action="/" class="taskInputSubmit" method="POST">
                 <div class="title">
                     <input type="text" placeholder="Task..." class="taskTitle" name="todolist[title]">
                     <button id="addTask">Add</button>
@@ -162,8 +162,8 @@
                             <%= todolist.title %>
                         </span>
                         <div class="btns">
-                            <a href="/todolist/<%= todolist._id %>/edit" class="editBtn">Edit</a>
-                            <form class="cross" action="/todolist/<%= todolist._id %>?_method=DELETE" method="POST">
+                            <a href="/<%= todolist._id %>/edit" class="editBtn">Edit</a>
+                            <form class="cross" action="/<%= todolist._id %>?_method=DELETE" method="POST">
                                 <button class="delBtn">Delete</button>
                             </form>
                     </li>

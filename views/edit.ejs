@@ -87,10 +87,10 @@
 <body>
     <div class="container">
         <h2>EDIT TASK</h2>
-        <form action="/todolist/<%= todolist._id %>?_method=PUT" class="editTask" method="POST">
+        <form action="/<%= todolist._id %>?_method=PUT" class="editTask" method="POST">
             <input type="text" class="editText" value="<%= todolist.title %>" name="todolist[title]">
             <button class="editBtn">Edit</button>
-            <a href="/todolist" class="backBtn">Back</a>
+            <a href="/" class="backBtn">Back</a>
         </form>
     </div>
     <%- include('../partials/footer') %>
